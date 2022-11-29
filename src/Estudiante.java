@@ -63,10 +63,10 @@ public class Estudiante implements Runnable {
                 }
 
                 //Imprimimos por pantalla el mensaje de que estudiante tiene que libros
-                System.out.println("El " + Thread.currentThread().getName() + " tiene reservados los libros " + libro1 + " y " + libro2);
+                System.out.println("El " + /* cliente numero tal */ Thread.currentThread().getName() + " esta leyendo los libros " + libro1 + " y " + libro2);
 
                 //Esperamos un numero aleatorio de tiempo entre 3 y 5 segundos a que se imprima el siguiente mensaje
-                Thread.sleep((long) (Math.random() * (5000 - 3000) + 5000));
+                Thread.sleep((long) (Math.random() * (5000 - 3000) + 3000));
 
                 //Imprimimos que estudiante ha terminado de leer
                 System.out.println("El " + Thread.currentThread().getName() + " ha terminado de leer.");
@@ -80,6 +80,7 @@ public class Estudiante implements Runnable {
                     //Y usamos el notifyAll para continuar con todos los segmentas parados por el wait
                     libros.notifyAll();
                 }
+
             }
 
         } catch (InterruptedException e) {
